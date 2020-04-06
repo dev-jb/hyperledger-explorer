@@ -1,11 +1,13 @@
 {
 	"persistence": "postgreSQL",
-	"platforms": ["fabric"],
+	"platforms": [
+		"fabric"
+	],
 	"postgreSQL": {
 		"host": "127.0.0.1",
 		"port": "5432",
-		"database": "postgres",
-		"username": "postgres",
+		"database": "blockchainify",
+		"username": "adminmain",
 		"passwd": "admin1234"
 	},
 	"sync": {

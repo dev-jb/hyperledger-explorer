@@ -1,0 +1,117 @@
+{
+    "name": "blockchainify-network",
+    "version": "1.0.0",
+    "license": "Apache-2.0",
+    "client": {
+        "tlsEnable": true,
+        "enableAuthentication": true,
+        "organization": "OrgMain",
+        "adminUser": "adminmain",
+        "adminPassword": "adminmain",
+        "connection": {
+            "timeout": {
+                "peer": {
+                    "endorser": "300"
+                },
+                "orderer": "300"
+            }
+        }
+    },
+    "channels": {
+        "myc": {
+            "orderers": [
+                "orderer0.com"
+            ],
+            "peers": {
+                "peer0.org-main.com": {},
+                "peer1.org-main.com": {},
+                "peer2.org-main.com": {}
+            },
+            "connection": {
+                "timeout": {
+                    "peer": {
+                        "endorser": "6000",
+                        "eventHub": "6000",
+                        "eventReg": "6000"
+                    }
+                }
+            }
+        }
+    },
+    "organizations": {
+        "OrgMain": {
+            "mspid": "OrgMainMSP",
+            "fullpath": true,
+            "certificateAuthorities": [
+                "ca_peerOrgMain"
+            ],
+            "adminPrivateKey": {
+                "path": "./app/platform/fabric/crypto-config/peerOrganizations/org-main.com/users/Admin@org-main.com/msp/keystore/cacfbbd948c77ba5a1bf1c2a1b7338e9c934c7b5675ca8ee81786a5a486a0282_sk"
+            },
+            "signedCert": {
+                "path": "./app/platform/fabric/crypto-config/peerOrganizations/org-main.com/users/Admin@org-main.com/msp/signcerts/Admin@org-main.com-cert.pem"
+            }
+        }
+    },
+    "orderers": {
+        "orderer0.com": {
+            "url": "grpcs://localhost:7050",
+            "grpcOptions": {
+                "ssl-target-name-override": "orderer0.com"
+            },
+            "tlsCACerts": {
+                "path": "./app/platform/fabric/crypto-config/ordererOrganizations/com/orderers/orderer0.com/msp/tlscacerts/tlsca.com-cert.pem"
+            }
+        }
+    },
+    "peers": {
+        "peer0.org-main.com": {
+            "tlsCACerts": {
+                "path": "./app/platform/fabric/crypto-config/peerOrganizations/org-main.com/peers/peer0.org-main.com/tls/ca.crt"
+            },
+            "url": "grpcs://localhost:7051",
+            "eventUrl": "grpcs://localhost:7053",
+            "grpcOptions": {
+                "ssl-target-name-override": "peer0.org-main.com"
+            }
+        },
+        "peer1.org-main.com": {
+            "tlsCACerts": {
+                "path": "./app/platform/fabric/crypto-config/peerOrganizations/org-main.com/peers/peer1.org-main.com/tls/ca.crt"
+            },
+            "url": "grpcs://localhost:8051",
+            "eventUrl": "grpcs://localhost:8053",
+            "grpcOptions": {
+                "ssl-target-name-override": "peer1.org-main.com"
+            }
+        },
+        "peer2.org-main.com": {
+            "tlsCACerts": {
+                "path": "./app/platform/fabric/crypto-config/peerOrganizations/org-main.com/peers/peer2.org-main.com/tls/ca.crt"
+            },
+            "url": "grpcs://localhost:9051",
+            "eventUrl": "grpcs://localhost:9053",
+            "grpcOptions": {
+                "ssl-target-name-override": "peer2.org-main.com"
+            }
+        }
+    },
+    "certificateAuthorities": {
+        "ca_peerOrgMain": {
+            "url": "https://localhost:5011",
+            "httpOptions": {
+                "verify": false
+            },
+            "tlsCACerts": {
+                "path": "./app/platform/fabric/crypto-config/peerOrganizations/org-main.com/tlsca/tlsca.org-main.com-cert.pem"
+            },
+            "registrar": [
+                {
+                    "enrollId": "adminmain",
+                    "enrollSecret": "adminmain"
+                }
+            ],
+            "caName": "ca-org-main"
+        }
+    }
+}
