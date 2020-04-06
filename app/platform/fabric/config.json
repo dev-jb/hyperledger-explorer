@@ -1,0 +1,9 @@
+{
+	"network-configs": {
+		"first-network": {
+			"name": "ivs-network",
+			"profile": "./connection-profile/ivs-network.json"
+		}
+	},
+	"license": "Apache-2.0"
+}

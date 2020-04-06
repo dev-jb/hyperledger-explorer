@@ -1,0 +1,173 @@
+{
+	"name": "ivs-network",
+	"version": "1.0.0",
+	"license": "Apache-2.0",
+	"client": {
+		"tlsEnable": true,
+		"enableAuthentication": true,
+		"organization": "OrgMain",
+		"adminUser": "adminmain",
+		"adminPassword": "adminivs1234",
+		"connection": {
+			"timeout": {
+				"peer": {
+					"endorser": "300"
+				},
+				"orderer": "300"
+			}
+		}
+	},
+	"channels": {
+		"myc": {
+			"orderers": ["orderer0.ivs.com"],
+			"peers": {
+				"peer0.org-main.ivs.com": {},
+				"peer1.org-main.ivs.com": {},
+				"peer2.org-main.ivs.com": {},
+				"peer0.org-dp1.ivs.com": {},
+				"peer1.org-dp1.ivs.com": {},
+				"peer2.org-dp1.ivs.com": {}
+			},
+			"connection": {
+				"timeout": {
+					"peer": {
+						"endorser": "6000",
+						"eventHub": "6000",
+						"eventReg": "6000"
+					}
+				}
+			}
+		}
+	},
+	"organizations": {
+		"OrgMain": {
+			"mspid": "OrgMainMSP",
+			"fullpath": true,
+			"certificateAuthorities": ["ca_peerOrgMain"],
+			"adminPrivateKey": {
+				"path": "./app/platform/fabric/crypto-config/peerOrganizations/org-main.ivs.com/users/Admin@org-main.ivs.com/msp/keystore/58fbf1b93b786220d2176cf45ddc015039416646f2f8d50f01b7867035ff890c_sk"
+			},
+			"signedCert": {
+				"path": "./app/platform/fabric/crypto-config/peerOrganizations/org-main.ivs.com/users/Admin@org-main.ivs.com/msp/signcerts/Admin@org-main.ivs.com-cert.pem"
+			}
+		},
+		"OrgDP1": {
+			"mspid": "OrgDP1MSP",
+			"fullpath": true,
+			"certificateAuthorities": ["ca_peerOrgDP1"],
+			"adminPrivateKey": {
+				"path": "./app/platform/fabric/crypto-config/peerOrganizations/org-dp1.ivs.com/users/Admin@org-dp1.ivs.com/msp/keystore/b0331585190acd67be782e7a8b0d75a19ef9c59236009334594f90c3ea8419fe_sk"
+			},
+			"signedCert": {
+				"path": "./app/platform/fabric/crypto-config/peerOrganizations/org-dp1.ivs.com/users/Admin@org-dp1.ivs.com/msp/signcerts/Admin@org-dp1.ivs.com-cert.pem"
+			}
+		}
+	},
+	"orderers": {
+		"orderer0.ivs.com": {
+			"url": "grpcs://localhost:7050",
+			"grpcOptions": {
+				"ssl-target-name-override": "orderer0.ivs.com"
+			},
+			"tlsCACerts": {
+				"path": "./app/platform/fabric/crypto-config/ordererOrganizations/ivs.com/orderers/orderer0.ivs.com/msp/tlscacerts/tlsca.ivs.com-cert.pem"
+			}
+		}
+	},
+	"peers": {
+		"peer0.org-main.ivs.com": {
+			"tlsCACerts": {
+				"path": "./app/platform/fabric/crypto-config/peerOrganizations/org-main.ivs.com/peers/peer0.org-main.ivs.com/tls/ca.crt"
+			},
+			"url": "grpcs://localhost:13051",
+			"eventUrl": "grpcs://localhost:13053",
+			"grpcOptions": {
+				"ssl-target-name-override": "peer0.org-main.ivs.com"
+			}
+		},
+		"peer1.org-main.ivs.com": {
+			"tlsCACerts": {
+				"path": "./app/platform/fabric/crypto-config/peerOrganizations/org-main.ivs.com/peers/peer1.org-main.ivs.com/tls/ca.crt"
+			},
+			"url": "grpcs://localhost:14051",
+			"eventUrl": "grpcs://localhost:14053",
+			"grpcOptions": {
+				"ssl-target-name-override": "peer1.org-main.ivs.com"
+			}
+		},
+		"peer2.org-main.ivs.com": {
+			"tlsCACerts": {
+				"path": "./app/platform/fabric/crypto-config/peerOrganizations/org-main.ivs.com/peers/peer2.org-main.ivs.com/tls/ca.crt"
+			},
+			"url": "grpcs://localhost:15051",
+			"eventUrl": "grpcs://localhost:15053",
+			"grpcOptions": {
+				"ssl-target-name-override": "peer2.org-main.ivs.com"
+			}
+		},
+		"peer0.org-dp1.ivs.com": {
+			"tlsCACerts": {
+				"path": "./app/platform/fabric/crypto-config/peerOrganizations/org-dp1.ivs.com/peers/peer0.org-dp1.ivs.com/tls/ca.crt"
+			},
+			"url": "grpcs://localhost:7051",
+			"eventUrl": "grpcs://localhost:7053",
+			"grpcOptions": {
+				"ssl-target-name-override": "peer0.org-dp1.ivs.com"
+			}
+		},
+		"peer1.org-dp1.ivs.com": {
+			"tlsCACerts": {
+				"path": "./app/platform/fabric/crypto-config/peerOrganizations/org-dp1.ivs.com/peers/peer1.org-dp1.ivs.com/tls/ca.crt"
+			},
+			"url": "grpcs://localhost:8051",
+			"eventUrl": "grpcs://localhost:8053",
+			"grpcOptions": {
+				"ssl-target-name-override": "peer1.org-dp1.ivs.com"
+			}
+		},
+		"peer2.org-dp1.ivs.com": {
+			"tlsCACerts": {
+				"path": "./app/platform/fabric/crypto-config/peerOrganizations/org-dp1.ivs.com/peers/peer2.org-dp1.ivs.com/tls/ca.crt"
+			},
+			"url": "grpcs://localhost:9051",
+			"eventUrl": "grpcs://localhost:9053",
+			"grpcOptions": {
+				"ssl-target-name-override": "peer2.org-dp1.ivs.com"
+			}
+		}
+	},
+	"certificateAuthorities": {
+		"ca_peerOrgMain": {
+			"url": "https://localhost:9054",
+			"httpOptions": {
+				"verify": false
+			},
+			"tlsCACerts": {
+				"path": "./app/platform/fabric/crypto-config/peerOrganizations/org-main.ivs.com/tlsca/tlsca.org-main.ivs.com-cert.pem"
+			},
+			"registrar": [
+				{
+					"enrollId": "adminmain",
+					"enrollSecret": "adminivs1234"
+				}
+			],
+			"caName": "ca-org-main"
+		},
+		"ca_peerOrgDP1": {
+			"url": "https://localhost:7054",
+			"httpOptions": {
+				"verify": false
+			},
+			"tlsCACerts": {
+				"path": "./app/platform/fabric/crypto-config/peerOrganizations/org-dp1.ivs.com/tlsca/tlsca.org-dp1.ivs.com-cert.pem"
+			},
+			"registrar": [
+				{
+					"enrollId": "admindp1",
+					"enrollSecret": "adminivs1234"
+				}
+			],
+			"caName": "ca-org-dp1"
+		}
+	}
+}
