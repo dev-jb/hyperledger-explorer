@@ -7,7 +7,7 @@
         "enableAuthentication": true,
         "organization": "OrgMain",
         "adminUser": "adminmain",
-        "adminPassword": "adminmain",
+        "adminPassword": "adminivs1234",
         "connection": {
             "timeout": {
                 "peer": {
@@ -20,7 +20,7 @@
     "channels": {
         "myc": {
             "orderers": [
-                "orderer0.com"
+                "orderer0.org.com"
             ],
             "peers": {
                 "peer0.org-main.com": {},
@@ -54,13 +54,13 @@
         }
     },
     "orderers": {
-        "orderer0.com": {
+        "orderer0.org.com": {
             "url": "grpcs://localhost:7050",
             "grpcOptions": {
-                "ssl-target-name-override": "orderer0.com"
+                "ssl-target-name-override": "orderer0.org.com"
             },
             "tlsCACerts": {
-                "path": "./app/platform/fabric/crypto-config/ordererOrganizations/com/orderers/orderer0.com/msp/tlscacerts/tlsca.com-cert.pem"
+                "path": "./app/platform/fabric/crypto-config/ordererOrganizations/org.com/orderers/orderer0.org.com/msp/tlscacerts/tlsca.com-cert.pem"
             }
         }
     },
@@ -108,7 +108,7 @@
             "registrar": [
                 {
                     "enrollId": "adminmain",
-                    "enrollSecret": "adminmain"
+                    "enrollSecret": "adminivs1234"
                 }
             ],
             "caName": "ca-org-main"
