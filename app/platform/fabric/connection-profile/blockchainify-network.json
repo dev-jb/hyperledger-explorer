@@ -60,7 +60,7 @@
                 "ssl-target-name-override": "orderer0.org.com"
             },
             "tlsCACerts": {
-                "path": "./app/platform/fabric/crypto-config/ordererOrganizations/org.com/orderers/orderer0.org.com/msp/tlscacerts/tlsca.com-cert.pem"
+                "path": "./app/platform/fabric/crypto-config/ordererOrganizations/org.com/orderers/orderer0.org.com/msp/tlscacerts/tlsca.org.com-cert.pem"
             }
         }
     },
